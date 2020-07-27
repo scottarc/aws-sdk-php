@@ -24,9 +24,6 @@ class Gmac
     /** @var ByteArray $hf */
     protected $hf;
 
-    /** @var Key $key */
-    protected $key;
-
     /** @var ByteArray $x */
     protected $x;
 
@@ -48,7 +45,6 @@ class Gmac
                 OPENSSL_RAW_DATA | OPENSSL_NO_PADDING
             )
         );
-        $this->key = $aesKey;
         $this->x = new ByteArray(16);
         $this->hf = new ByteArray(
             \openssl_encrypt(
